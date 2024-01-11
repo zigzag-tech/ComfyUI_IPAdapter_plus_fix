@@ -13,6 +13,7 @@ from torch import nn
 from PIL import Image
 import torch.nn.functional as F
 import torchvision.transforms as TT
+from insightface.app import FaceAnalysis
 
 from .resampler import PerceiverAttention, FeedForward, Resampler
 
@@ -523,10 +524,11 @@ class InsightFaceLoader:
     CATEGORY = "ipadapter"
 
     def load_insight_face(self, provider):
-        try:
-            from insightface.app import FaceAnalysis
-        except ImportError as e:
-            raise Exception(e)
+        pass
+#        try:
+#            from insightface.app import FaceAnalysis
+#        except ImportError as e:
+#            raise Exception(e)
 
         model = FaceAnalysis(name="buffalo_l", root=INSIGHTFACE_DIR, providers=[provider + 'ExecutionProvider',])
         model.prepare(ctx_id=0, det_size=(640, 640))
