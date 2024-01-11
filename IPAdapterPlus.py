@@ -524,7 +524,6 @@ class InsightFaceLoader:
     CATEGORY = "ipadapter"
 
     def load_insight_face(self, provider):
-        pass
 #        try:
 #            from insightface.app import FaceAnalysis
 #        except ImportError as e:
